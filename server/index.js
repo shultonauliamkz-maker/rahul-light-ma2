@@ -64,3 +64,6 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`  Wi-Fi / LAN Access URL : http://192.168.1.4:${PORT}`);
   console.log(`==================================================================`);
 });
+
+export default app;
+
