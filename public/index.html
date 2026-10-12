@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAHUL LIGHT — MA2 File Downgrader</title>
+  <meta name="description" content="Downgrade and validate compatible grandMA2 files with target-version analysis.">
+  
+  <!-- Google Fonts Modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet & Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-transparent.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Latar Belakang Atmosfer Panggung Lighting -->
+  <div class="ambient-bg">
+    <div class="ambient-grid"></div>
+    <div class="beam-light-1"></div>
+    <div class="beam-light-2"></div>
+  </div>
+
+  <!-- Header Navigasi -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand-wrapper" id="brandHomeLink" href="#home">
+        <div class="brand-icon">
+          <img src="assets/logo-transparent.png" alt="Rahul Light" class="brand-logo-img">
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">RAHUL LIGHT <span>— MA2 FILE DOWNGRADER</span></div>
+          <div class="brand-tag">Platform Rekayasa Lighting Profesional</div>
+        </div>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav>
+        <ul class="nav-menu">
+          <li><button class="nav-link active" id="navHome" data-target="home">Beranda</button></li>
+          <li><button class="nav-link" id="navDowngrader" data-target="downgrader">Penyesuai Berkas</button></li>
+          <li><button class="nav-link" id="navDiagnostics" data-target="diagnostics">Diagnostik Impor</button></li>
+          <li><button class="nav-link" id="navHistory" data-target="history">Riwayat Konversi</button></li>
+          <li><button class="nav-link" id="navGuide" data-target="guide">Panduan Kompatibilitas</button></li>
+          <li><button class="nav-link" id="navDocs" data-target="docs">Dokumentasi</button></li>
+          <li><button class="nav-link" id="navAbout" data-target="about">Tentang Rahul Light</button></li>
+        </ul>
+      </nav>
+
+      <!-- Status Mesin Konsol -->
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span id="engineStatusText">MESIN KONSOL SIAP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Kontainer Tampilan Utama -->
+  <main class="main-content">
+
+    <!-- ====================================================================
+         HALAMAN 1: BERANDA (HOME)
+         ==================================================================== -->
+    <section class="page-view active" id="view-home">
+      <div class="hero-section">
+        <div class="hero-logo-badge">
+          <img src="assets/logo-transparent.png" alt="Rahul Light" class="hero-logo-img">
+        </div>
+        <div class="hero-badge">
+          <span>⚡ Mesin Kompatibilitas & Penyesuaian File grandMA2</span>
+        </div>
+        
+        <h1 class="hero-title">
+          YOUR MA FILE. <br>
+          <span class="gradient-text">YOUR VERSION.</span>
+        </h1>
+        
+        <p class="hero-description">
+          Convert and prepare your grandMA2 files for older software versions with intelligent compatibility analysis. 
+          Menjaga patch fixture, sekuens cue, perintah macro, dan logika skrip Lua tetap utuh tanpa kehilangan data secara diam-diam.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="heroStartConvertingBtn">
+            <span>⚡ START CONVERTING</span>
+          </button>
+          <button class="btn btn-secondary" id="heroExploreGuideBtn">
+            <span>📖 Panduan Kompatibilitas</span>
+          </button>
+          <button class="btn btn-outline-cyan" id="heroLoadSampleQuickBtn">
+            <span>🧪 Coba Sampel Berkas v3.9.63</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Kartu Fitur Unggulan -->
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">🔍</div>
+          <h3>Analisis Kompatibilitas Cerdas</h3>
+          <p>
+            Memeriksa tag skema XML, pemanggilan API Lua, dan sintaks macro terhadap firmware konsol tujuan. 
+            Mendeteksi potensi kesalahan sebelum file dibawa ke meja FOH panggung.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🛡️</div>
+          <h3>Zero Silent Data Loss</h3>
+          <p>
+            Tidak sekadar mengganti string versi. Rahul Light mendokumentasikan setiap atribut, membungkus 
+            elemen baru dalam komentar aman, dan menyuntikkan shim Lua otomatis.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">📦</div>
+          <h3>Dukungan Asli Showfile Gzip</h3>
+          <p>
+            Dekompresi biner byte-level dan kompresi ulang asli untuk berkas <code>.show</code> dan <code>.gz</code> grandMA2, 
+            menjaga integritas checksum konsol agar dapat dibuka secara valid.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">📊</div>
+          <h3>Inspektur Diff Visual Granular</h3>
+          <p>
+            Periksa modifikasi baris demi baris sebelum dan sesudah konversi. 
+            Unduh laporan audit lengkap untuk kebutuhan manajemen panggung konser.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Format File yang Didukung -->
+      <div class="supported-types-section">
+        <div class="section-header-compact">
+          <h2><span>📁</span> Format File grandMA2 yang Didukung</h2>
+          <span class="panel-title-badge">Deteksi Otomatis Format & Skema</span>
+        </div>
+        <div class="types-chips-grid">
+          <div class="type-chip">
+            <span class="chip-ext">.XMLP / .XML</span>
+            <div class="chip-info">
+              <span class="chip-title">Library Fixtures (Profil Lampu)</span>
+              <span class="chip-path">/gma2/library/</span>
+            </div>
+          </div>
+          <div class="type-chip">
+            <span class="chip-ext">.LUA</span>
+            <div class="chip-info">
+              <span class="chip-title">Plugins (Skrip Lua)</span>
+              <span class="chip-path">/gma2/plugins/</span>
+            </div>
+          </div>
+          <div class="type-chip">
+            <span class="chip-ext">.XML</span>
+            <div class="chip-info">
+              <span class="chip-title">Macro (Perintah Konsol)</span>
+              <span class="chip-path">/gma2/importexport/</span>
+            </div>
+          </div>
+          <div class="type-chip">
+            <span class="chip-ext">.XML</span>
+            <div class="chip-info">
+              <span class="chip-title">Effect & Phaser (Bentuk Gelombang)</span>
+              <span class="chip-path">/gma2/importexport/</span>
+            </div>
+          </div>
+          <div class="type-chip">
+            <span class="chip-ext">.SHOW / .GZ</span>
+            <div class="chip-info">
+              <span class="chip-title">Showfile grandMA2 (Pertunjukan)</span>
+              <span class="chip-path">/gma2/shows/</span>
+            </div>
+          </div>
+          <div class="type-chip">
+            <span class="chip-ext">.ZIP</span>
+            <div class="chip-info">
+              <span class="chip-title">Paket Multi-Berkas Tur</span>
+              <span class="chip-path">Ekstraksi & konversi otomatis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN 2: PENYESUAI BERKAS (FILE DOWNGRADER WORKSPACE)
+         ==================================================================== -->
+    <section class="page-view" id="view-downgrader">
+      <div class="workspace-container">
+
+        <!-- Panel Konfigurasi Versi & Mode -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <div class="panel-title">
+              <span>🎛️</span>
+              <span>Konfigurasi Penyesuaian Versi MA</span>
+            </div>
+            <div class="panel-title-badge" id="versionShiftBadge">Siap</div>
+          </div>
+
+          <!-- Pemilih Versi -->
+          <div class="version-control-grid">
+            <!-- Versi Asal (Source) -->
+            <div class="version-box">
+              <div class="version-box-label">
+                <span class="version-box-title">Versi Asal (Source Version)</span>
+                <span class="panel-title-badge">Header File</span>
+              </div>
+              <select class="version-select-input" id="sourceVersionSelect">
+                <option value="auto">Deteksi Otomatis dari Berkas (Disarankan)</option>
+                <option value="3.9.63.6">grandMA2 v3.9.63.6 (Rilis Stabil Resmi Terbaru)</option>
+                <option value="3.9.60.74">grandMA2 v3.9.60.74 (Standar Tur & Rental)</option>
+                <option value="3.9.60.27">grandMA2 v3.9.60.27</option>
+                <option value="3.9.51.2">grandMA2 v3.9.51.2</option>
+                <option value="3.9.0.3">grandMA2 v3.9.0.3</option>
+                <option value="3.8.0.0">grandMA2 v3.8.0.0</option>
+                <option value="3.7.0.5">grandMA2 v3.7.0.5</option>
+                <option value="3.6.1.1">grandMA2 v3.6.1.1</option>
+                <option value="3.5.0.6">grandMA2 v3.5.0.6</option>
+                <option value="3.3.4.3">grandMA2 v3.3.4.3</option>
+                <option value="3.2.2.16">grandMA2 v3.2.2.16 (onPC & Command Wing Klasik)</option>
+                <option value="custom">Pilih Versi Manual Kustom...</option>
+              </select>
+              <input type="text" class="version-custom-input" id="sourceVersionCustom" placeholder="Contoh: 3.9.62.1">
+            </div>
+
+            <!-- Tanda Panah -->
+            <div class="version-divider">
+              <div class="version-arrow-circle">➔</div>
+            </div>
+
+            <!-- Versi Tujuan (Target) -->
+            <div class="version-box">
+              <div class="version-box-label">
+                <span class="version-box-title">Versi Tujuan (Target Version)</span>
+                <span class="panel-title-badge">Firmware Konsol</span>
+              </div>
+              <select class="version-select-input" id="targetVersionSelect">
+                <option value="3.9.60.74" selected>grandMA2 v3.9.60.74 (Standar Tur & Rental)</option>
+                <option value="3.9.60.27">grandMA2 v3.9.60.27</option>
+                <option value="3.9.51.2">grandMA2 v3.9.51.2</option>
+                <option value="3.9.0.3">grandMA2 v3.9.0.3</option>
+                <option value="3.8.0.0">grandMA2 v3.8.0.0</option>
+                <option value="3.7.0.5">grandMA2 v3.7.0.5</option>
+                <option value="3.6.1.1">grandMA2 v3.6.1.1</option>
+                <option value="3.5.0.6">grandMA2 v3.5.0.6</option>
+                <option value="3.3.4.3">grandMA2 v3.3.4.3</option>
+                <option value="3.2.2.16">grandMA2 v3.2.2.16 (onPC & Command Wing Klasik)</option>
+                <option value="custom">Pilih Versi Manual Kustom...</option>
+              </select>
+              <input type="text" class="version-custom-input" id="targetVersionCustom" placeholder="Contoh: 3.9.40.1">
+            </div>
+          </div>
+
+          <!-- Pemilihan Mode Konversi -->
+          <div class="mode-selection-container">
+            <div class="mode-selection-label">Pilih Strategi Mesin Konversi</div>
+            <div class="mode-cards-grid">
+              <!-- Auto Downgrade -->
+              <div class="mode-radio-card active" data-mode="auto" id="modeCardAuto">
+                <div class="mode-header">
+                  <div class="mode-radio-indicator"></div>
+                  <div class="mode-name">Auto Downgrade</div>
+                </div>
+                <div class="mode-desc">
+                  Cepat & optimal. Otomatis menyesuaikan skema XML, membungkus tag yang tidak dikenal, menerjemahkan warna hex, dan menyuntikkan polyfill.
+                </div>
+              </div>
+
+              <!-- Safe Conversion -->
+              <div class="mode-radio-card" data-mode="safe" id="modeCardSafe">
+                <div class="mode-header">
+                  <div class="mode-radio-indicator"></div>
+                  <div class="mode-name">Safe Conversion</div>
+                </div>
+                <div class="mode-desc">
+                  Mode aman non-destruktif. Tidak pernah menghapus data tanpa anotasi fallback. Menyuntikkan shim pengaman Lua saat runtime.
+                </div>
+              </div>
+
+              <!-- Advanced Conversion -->
+              <div class="mode-radio-card" data-mode="advanced" id="modeCardAdvanced">
+                <div class="mode-header">
+                  <div class="mode-radio-indicator"></div>
+                  <div class="mode-name">Advanced Conversion</div>
+                </div>
+                <div class="mode-desc">
+                  Kontrol granular penuh. Pengaturan kustom untuk shim Lua, pembersihan tag hybrid Phaser, dan penulisan ulang sintaks CLI.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opsi Konversi Lanjutan (Drawer) -->
+          <div class="advanced-options-panel" id="advancedOptionsPanel">
+            <div class="advanced-options-title">⚙️ Parameter Penyetelan Lanjutan (Advanced Tuning)</div>
+            <div class="advanced-checkbox-grid">
+              <label class="adv-checkbox-item">
+                <input type="checkbox" id="advInjectLuaShims" checked>
+                <span>Sisipkan Shim Lua Rahul Light untuk <code>gma.gui.progress</code> & Info Host Jaringan</span>
+              </label>
+              <label class="adv-checkbox-item">
+                <input type="checkbox" id="advConvertHexColors" checked>
+                <span>Konversi Warna Hex Perintah Appearance (<code>#00d2ff</code>) ke Integer RGB (<code>0,210,255</code>)</span>
+              </label>
+              <label class="adv-checkbox-item">
+                <input type="checkbox" id="advWrapPhaserTags" checked>
+                <span>Bungkus Tag Hybrid Phaser & Recipe grandMA3 dalam Komentar XML yang Aman</span>
+              </label>
+              <label class="adv-checkbox-item">
+                <input type="checkbox" id="advFallbackSoundSync" checked>
+                <span>Alihkan Trigger Audio SoundSync ke "Follow" dengan Catatan Cue untuk Operator</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Area Drag and Drop Utama -->
+          <div class="dropzone-container" id="dropZone">
+            <input type="file" id="fileInput" multiple style="display: none;" accept=".show,.gz,.xml,.lua,.zip,.png,.bmp,.svg,.cfg,.ini">
+            <div class="dropzone-icon">
+              <img src="assets/logo-transparent.png" alt="Rahul Light" style="width: 54px; height: 54px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(255, 220, 40, 0.85));">
+            </div>
+            <h2 class="dropzone-title">DRAG & DROP YOUR MA2 FILE HERE</h2>
+            <p class="dropzone-subtitle">
+              Upload showfiles, plugins, macros, effects, and supported MA2 assets. 
+              Mendukung multi-file sekaligus dan paket arsip ZIP lengkap hingga 50MB.
+            </p>
+            <div class="dropzone-actions">
+              <button class="btn btn-primary" id="browseFilesBtn" type="button">
+                <span>📁 PILIH BERKAS (BROWSE FILES)</span>
+              </button>
+            </div>
+
+            <!-- Tombol Penguji Sampel Cepat -->
+            <div class="sample-loaders-bar">
+              <span class="sample-label">Uji Sampel Berdasarkan Kategori:</span>
+              <button class="btn-sample" id="loadSampleFixtureBtn" type="button">⚡ Library Fixture (v3.9)</button>
+              <button class="btn-sample" id="loadSamplePluginBtn" type="button">⚡ Plugin Lua (v3.9)</button>
+              <button class="btn-sample" id="loadSampleMacroBtn" type="button">⚡ Macro XML (v3.9)</button>
+              <button class="btn-sample" id="loadSampleEffectBtn" type="button">⚡ Effect & Phaser (v3.9)</button>
+              <button class="btn-sample" id="loadSampleShowBtn" type="button">⚡ Showfile Gzip (v3.9)</button>
+              <button class="btn-sample" id="loadSampleZipBtn" type="button">⚡ Paket Tur ZIP</button>
+            </div>
+          </div>
+
+          <!-- Antrean Berkas yang Diunggah -->
+          <div class="file-queue-section" id="fileQueueSection">
+            <div class="file-queue-header">
+              <div class="queue-title">Daftar Antrean Berkas (<span id="queueCount">0</span>)</div>
+              <div class="file-actions-row">
+                <button class="btn btn-sm btn-danger" id="clearAllFilesBtn">Hapus Semua</button>
+                <button class="btn btn-sm btn-primary" id="analyzeAllFilesBtn">Jalankan Analisis</button>
+              </div>
+            </div>
+            <div class="file-cards-list" id="fileCardsList">
+              <!-- Kartu file dihasilkan dinamis -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Laporan Analisis Kompatibilitas -->
+        <div class="analysis-dashboard" id="analysisDashboard">
+          <div class="panel-card-header">
+            <div class="panel-title">
+              <span>📋</span>
+              <span>Laporan Analisis Kompatibilitas Berkas</span>
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
+              <span id="detectedCategoryBadge" class="file-badge-type" style="font-size: 0.85rem; padding: 0.35rem 0.75rem; border-color: var(--accent-cyan); color: var(--accent-cyan);">Deteksi Kategori</span>
+              <div id="overallStatusBadge" class="file-status-badge status-convertible">
+                ANALISIS SELESAI
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid Statistik Temuan -->
+          <div class="analysis-stats-grid">
+            <div class="stat-box">
+              <div class="stat-value cyan" id="statTotalIssues">0</div>
+              <div class="stat-label">Total Temuan</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value amber" id="statWarnings">0</div>
+              <div class="stat-label">Peringatan (Warnings)</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value red" id="statCritical">0</div>
+              <div class="stat-label">Ketidakcocokan Kritis</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value green" id="statConvertible">0</div>
+              <div class="stat-label">Fitur Dapat Dikonversi</div>
+            </div>
+          </div>
+
+          <!-- Tabel Rincian Masalah -->
+          <div class="issues-list-container">
+            <h4 style="font-family: var(--font-heading); margin-bottom: 0.85rem; color: var(--text-primary);">
+              Rincian Masalah, Dampak Konsol, dan Solusi Penyesuaian:
+            </h4>
+            <div style="overflow-x: auto;">
+              <table class="issues-table">
+                <thead>
+                  <tr>
+                    <th style="width: 110px;">Keparahan</th>
+                    <th style="width: 80px;">Baris/Tag</th>
+                    <th style="width: 220px;">Nama Fitur</th>
+                    <th>Deskripsi & Dampak pada Konsol</th>
+                    <th style="width: 280px;">Solusi Penyesuaian Rahul Light</th>
+                  </tr>
+                </thead>
+                <tbody id="issuesTableBody">
+                  <!-- Baris masalah dihasilkan dinamis -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tombol Eksekusi Konversi -->
+          <div style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+            <button class="btn btn-primary" id="executeConvertBtn">
+              <span>⚡ KONVERSI BERKAS SEKARANG</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Hasil Konversi & Inspektur Diff -->
+        <div class="results-dashboard" id="resultsDashboard">
+          <div class="results-hero">
+            <div class="results-hero-left">
+              <div class="results-check-icon">✓</div>
+              <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: #fff;">
+                  Konversi Selesai & Tervalidasi!
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;" id="resultsSubtext">
+                  Berkas berhasil disesuaikan untuk grandMA2 v3.9.60.74 tanpa silent data loss.
+                </p>
+              </div>
+            </div>
+
+            <div class="results-actions-bar">
+              <button class="btn btn-primary" id="downloadConvertedBtn">
+                <span>📥 UNDUH BERKAS HASIL (.SHOW.GZ / XML)</span>
+              </button>
+              <button class="btn btn-warning" id="downloadMigrationZipBtn" style="display: none; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #020b14; font-weight: 700; border: none; box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);">
+                <span>📦 UNDUH PAKET MIGRASI SHOWFILE (.ZIP)</span>
+              </button>
+              <button class="btn btn-primary" id="deployToMA2Btn" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #020b14; font-weight: 700; border: none; box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);">
+                <span>🚀 PASANG LANGSUNG KE GRANDMA2 (1-KLIK)</span>
+              </button>
+              <button class="btn btn-secondary" id="downloadReportBtn">
+                <span>📄 UNDUH LAPORAN AUDIT</span>
+              </button>
+              <button class="btn btn-outline-cyan" id="convertAnotherBtn">
+                <span>🔄 KONVERSI BERKAS LAIN</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Ringkasan Metadata Hasil -->
+          <div class="types-chips-grid" style="margin-bottom: 1.75rem;">
+            <div class="type-chip">
+              <span class="chip-ext">BERKAS ASAL</span>
+              <div class="chip-info">
+                <span class="chip-title" id="resOrigName">file.xml</span>
+                <span class="chip-path" id="resOrigSize">0 KB</span>
+              </div>
+            </div>
+            <div class="type-chip">
+              <span class="chip-ext">BERKAS HASIL</span>
+              <div class="chip-info">
+                <span class="chip-title" id="resOutputName">file_v3.9.60.xml</span>
+                <span class="chip-path" id="resOutputSize">0 KB</span>
+              </div>
+            </div>
+            <div class="type-chip">
+              <span class="chip-ext">VERSI TARGET</span>
+              <div class="chip-info">
+                <span class="chip-title" id="resTargetVer">v3.9.60.74</span>
+                <span class="chip-path" id="resMode">Mode Auto</span>
+              </div>
+            </div>
+            <div class="type-chip">
+              <span class="chip-ext">STATUS</span>
+              <div class="chip-info">
+                <span class="chip-title" style="color: var(--accent-green);">100% Selesai</span>
+                <span class="chip-path" id="resModCount">0 penyesuaian diterapkan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- IMPORT COMPATIBILITY CHECK (Pemeriksaan Kompatibilitas Nyata) -->
+          <div class="panel-card" style="margin-bottom: 1.75rem; border: 1px solid rgba(0, 210, 255, 0.35); background: rgba(13, 20, 36, 0.75);">
+            <div class="panel-card-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
+              <div class="panel-title">
+                <span>🛡️</span>
+                <span>HASIL IMPORT COMPATIBILITY CHECK</span>
+              </div>
+              <div id="resCompatibilityBadge" class="file-status-badge status-compatible" style="font-size: 0.85rem; padding: 0.35rem 0.85rem;">
+                TESTED
+              </div>
+            </div>
+
+            <!-- Grid Metrik Diagnostik Nyata -->
+            <div class="analysis-stats-grid" style="margin-bottom: 1.25rem;">
+              <div class="stat-box">
+                <div class="stat-value green" id="resCheckIntegrity">PASS</div>
+                <div class="stat-label">File Integrity</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value green" id="resCheckStructure">PASS</div>
+                <div class="stat-label">Structure Validation</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value cyan" id="resCheckTargetCompat">TESTED</div>
+                <div class="stat-label">Target Compatibility</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value amber" id="resCheckUnsupported">0</div>
+                <div class="stat-label">Unsupported Commands</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value red" id="resCheckMissingDep">0</div>
+                <div class="stat-label">Missing Dependencies</div>
+              </div>
+            </div>
+
+            <!-- Rincian Data yang Dipertahankan & Disesuaikan -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-md); padding: 1rem; border: 1px solid rgba(255,255,255,0.06);">
+                <div style="color: var(--accent-green); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">
+                  ✓ Data yang Dipertahankan (Retained Data):
+                </div>
+                <ul id="resRetainedList" style="list-style: none; padding: 0; margin: 0; font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <li>• Struktur data asli dipertahankan penuh.</li>
+                </ul>
+              </div>
+
+              <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-md); padding: 1rem; border: 1px solid rgba(255,255,255,0.06);">
+                <div style="color: var(--accent-cyan); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">
+                  ⚙️ Rekomendasi & Alur Import grandMA2:
+                </div>
+                <ul id="resActionsList" style="list-style: none; padding: 0; margin: 0; font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <li>• Letakkan di folder konsol yang sesuai sebelum import.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 0.85rem; flex-wrap: wrap;">
+              <button class="btn btn-sm btn-outline-cyan" id="downloadDiagnosticTxtBtn" type="button">
+                <span>📄 Unduh Laporan Diagnostik (.txt)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Aliran Log Aktivitas Eksekusi -->
+          <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+            Aliran Log Aktivitas Mesin Konversi:
+          </h4>
+          <div class="log-stream-card" id="engineLogsContainer">
+            <!-- Entri log dinamis -->
+          </div>
+
+          <!-- Inspektur Diff Granular -->
+          <div class="diff-viewer-card">
+            <div class="diff-toolbar">
+              <div class="diff-title">
+                <span>🔍 Inspektur Diff Granular: Sebelum vs. Sesudah</span>
+              </div>
+              <div class="diff-stats-chips">
+                <span class="chip-add" id="diffStatAdded">+0 baris</span>
+                <span class="chip-del" id="diffStatRemoved">-0 baris</span>
+              </div>
+            </div>
+            <div class="diff-content-scroll" id="diffContentScroll">
+              <!-- Render baris diff -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN: DIAGNOSTIK IMPOR (IMPORT DIAGNOSTIC CENTER)
+         ==================================================================== -->
+    <section class="page-view" id="view-diagnostics">
+      <div class="panel-card" style="border: 1px solid rgba(0, 210, 255, 0.4); margin-bottom: 2rem;">
+        <div class="panel-card-header">
+          <div class="panel-title">
+            <span>🩺</span>
+            <span>PUSAT DIAGNOSTIK IMPOR grandMA2 (IMPORT DIAGNOSTIC CENTER)</span>
+          </div>
+          <span class="panel-title-badge" style="background: rgba(0, 210, 255, 0.15); color: var(--accent-cyan); border-color: rgba(0, 210, 255, 0.3);">
+            Audit & Pemecahan Masalah
+          </span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.75rem;">
+          Jika file hasil konversi mengalami kendala saat di-import ke software atau konsol grandMA2 (misalnya tombol <code>[Import]</code> tidak aktif, pesan error versi, atau data tidak muncul), gunakan modul diagnostik ini untuk menemukan akar masalah teknis secara akurat.
+        </p>
+
+        <!-- Formulir Masukan Diagnostik -->
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.75rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+            <!-- Versi Asal -->
+            <div class="version-box">
+              <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.4rem;">
+                Versi Asal File (Source Version):
+              </label>
+              <select class="version-select-input" id="diagSourceVer">
+                <option value="3.9.63.6">grandMA2 v3.9.63.6 (Official Latest)</option>
+                <option value="3.9.60.74">grandMA2 v3.9.60.74</option>
+                <option value="3.9.0.3">grandMA2 v3.9.0.3</option>
+                <option value="3.8.0.0">grandMA2 v3.8.0.0</option>
+                <option value="3.2.2.16">grandMA2 v3.2.2.16</option>
+              </select>
+            </div>
+
+            <!-- Versi Target -->
+            <div class="version-box">
+              <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.4rem;">
+                Versi Konsol Target (Target Version):
+              </label>
+              <select class="version-select-input" id="diagTargetVer">
+                <option value="3.2.2.16" selected>grandMA2 v3.2.2.16 (onPC & Wing Klasik - TESTED)</option>
+                <option value="3.9.60.74">grandMA2 v3.9.60.74 (Standar Tur & Rental - TESTED)</option>
+                <option value="3.9.63.6">grandMA2 v3.9.63.6 (Rilis Stabil Resmi - TESTED)</option>
+                <option value="3.8.0.0">grandMA2 v3.8.0.0 (NOT TESTED)</option>
+                <option value="3.7.0.5">grandMA2 v3.7.0.5 (NOT TESTED)</option>
+                <option value="3.6.1.1">grandMA2 v3.6.1.1 (NOT TESTED)</option>
+                <option value="3.5.0.6">grandMA2 v3.5.0.6 (NOT TESTED)</option>
+                <option value="3.3.4.3">grandMA2 v3.3.4.3 (NOT TESTED)</option>
+              </select>
+            </div>
+
+            <!-- Jenis Berkas -->
+            <div class="version-box">
+              <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.4rem;">
+                Jenis Berkas (File Type):
+              </label>
+              <select class="version-select-input" id="diagFileType">
+                <option value="fixture_xml">Fixture Library Profile XML (.xml)</option>
+                <option value="fixture_xmlp">Packed Fixture Library (.xmlp)</option>
+                <option value="macro_xml">Macro XML (.xml)</option>
+                <option value="effect_xml">Effect & Phaser XML (.xml)</option>
+                <option value="lua_plugin">Plugin Lua (.lua)</option>
+                <option value="showfile">Showfile (.show / .gz)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pesan Error dari Konsol -->
+          <div style="margin-bottom: 1.25rem;">
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.4rem;">
+              Pesan Error atau Gejala dari grandMA2 (Opsional):
+            </label>
+            <input type="text" id="diagErrorMessage" class="version-select-input" style="width: 100%;" 
+              placeholder="Contoh: Tombol [Import] tidak bisa diklik / Wrong software version / XML error line 220 / Lampu tidak muncul di Fixture Sheet">
+          </div>
+
+          <!-- Unggah Berkas untuk Diperiksa -->
+          <div style="margin-bottom: 1.5rem;">
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.4rem;">
+              Unggah Berkas yang Ingin Didiagnosis (File Hasil Konversi atau Berkas Asli):
+            </label>
+            <input type="file" id="diagFileInput" class="version-select-input" style="width: 100%; padding: 0.5rem; background: var(--bg-secondary);">
+          </div>
+
+          <div style="display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary" id="runDiagnosticBtn" type="button">
+              <span>🔍 JALANKAN ANALISIS DIAGNOSTIK</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Wadah Laporan Diagnostik Hasil -->
+        <div id="diagnosticResultContainer" style="display: none;">
+          <div class="panel-card-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+            <div class="panel-title">
+              <span>📋</span>
+              <span>IMPORT DIAGNOSTIC REPORT</span>
+            </div>
+            <button class="btn btn-sm btn-outline-cyan" id="diagDownloadReportTxtBtn" type="button">
+              <span>📥 Unduh Laporan (.txt)</span>
+            </button>
+          </div>
+
+          <!-- Grid Status Ringkasan Laporan -->
+          <div class="analysis-stats-grid" style="margin-bottom: 1.5rem;">
+            <div class="stat-box">
+              <div class="stat-value green" id="diagReportIntegrity">PASS</div>
+              <div class="stat-label">File Integrity</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value green" id="diagReportStructure">PASS</div>
+              <div class="stat-label">Structure Validation</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value cyan" id="diagReportTargetCompat">TESTED</div>
+              <div class="stat-label">Target Compatibility</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value amber" id="diagReportUnsupported">0</div>
+              <div class="stat-label">Unsupported Commands</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value red" id="diagReportMissingDep">0</div>
+              <div class="stat-label">Missing Dependencies</div>
+            </div>
+          </div>
+
+          <!-- Teks Laporan Lengkap Monospace -->
+          <div style="background: #060913; border: 1px solid rgba(0, 210, 255, 0.25); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; overflow-x: auto;">
+            <pre id="diagReportRawText" style="font-family: var(--font-mono); font-size: 0.85rem; color: #a5f3fc; line-height: 1.6; margin: 0; white-space: pre-wrap;"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN 3: RIWAYAT KONVERSI (CONVERSION HISTORY)
+         ==================================================================== -->
+    <section class="page-view" id="view-history">
+      <div class="panel-card">
+        <div class="panel-card-header">
+          <div class="panel-title">
+            <span>🕒</span>
+            <span>Riwayat Konversi Berkas Terakhir</span>
+          </div>
+          <button class="btn btn-sm btn-danger" id="clearHistoryBtn">Bersihkan Riwayat</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Daftar berkas yang telah dikonversi dalam sesi ini. Anda dapat mengunduh ulang berkas atau mengunduh laporan audit teknis.
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Waktu</th>
+                <th>Berkas Asal</th>
+                <th>Berkas Hasil</th>
+                <th>Versi Target</th>
+                <th>Mode</th>
+                <th>Ukuran</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <!-- Baris riwayat dinamis -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN 4: PANDUAN KOMPATIBILITAS (COMPATIBILITY GUIDE)
+         ==================================================================== -->
+    <section class="page-view" id="view-guide">
+      <div class="panel-card">
+        <div class="panel-card-header">
+          <div class="panel-title">
+            <span>📖</span>
+            <span>Matriks Kompatibilitas Versi Perangkat Lunak grandMA2</span>
+          </div>
+          <input type="text" id="guideSearchInput" placeholder="Cari fitur, tag, atau API..." style="background: var(--bg-tertiary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); color: #fff; padding: 0.5rem 1rem; font-family: var(--font-body); outline: none;">
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1.5rem;">
+          Katalog referensi perubahan skema XML, pengenalan method API Lua, dan sintaks baris perintah CLI di berbagai rilis software grandMA2.
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Fitur / Pengenal</th>
+                <th>Kategori</th>
+                <th>Versi Minimal grandMA2</th>
+                <th>Perilaku di Meja Konsol Lama</th>
+                <th>Tindakan Downgrade Rahul Light</th>
+              </tr>
+            </thead>
+            <tbody id="matrixTableBody">
+              <!-- Matriks dinamis -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN 5: DOKUMENTASI (DOCUMENTATION)
+         ==================================================================== -->
+    <section class="page-view" id="view-docs">
+      <div class="doc-card">
+        <h2>1. Memahami Arsitektur Format Berkas grandMA2</h2>
+        <p>
+          Konsol grandMA2 menyimpan dan mendistribusikan konfigurasi pencahayaan panggung melalui tiga jenis format utama:
+        </p>
+        <h3>A. Showfile Terkompresi (.show / .gz)</h3>
+        <p>
+          Showfile grandMA2 standar merupakan aliran XML yang dikompresi menggunakan gzip dengan byte magic <code>0x1F 0x8B</code>. 
+          Elemen root <code>&lt;MA&gt;</code> mendefinisikan stream version, struktur setup, patch fixture, profil lampu, sekuens, cue, 
+          dan tata letak executor. Rahul Light men-dekompresi gzip secara biner, menyesuaikan token skema, dan mengompresi ulang 
+          menggunakan deflasi gzip standar konsol.
+        </p>
+
+        <h3>B. Ekspor Modular XML (.xml)</h3>
+        <p>
+          Macro, Effect, Preset, dan Fixture Types yang diekspor dari meja konsol membawa header skema versi XML:
+        </p>
+        <div class="doc-code-block">&lt;MA xmlns="http://schemas.malighting.de/grandma2/xml/MA" major_vers="3" minor_vers="9" stream_vers="63" stream_sub_vers="6"&gt;</div>
+        <p>
+          Jika konsol yang menjalankan versi <code>3.9.60</code> membaca <code>stream_vers="63"</code>, konsol akan membatalkan impor 
+          dengan peringatan ketidakcocokan stream. Proses downgrade menyesuaikan token ini ke nomor versi konsol target.
+        </p>
+
+        <h3>C. Skrip Plugin Lua (.lua)</h3>
+        <p>
+          grandMA2 memperkenalkan integrasi Lua pada versi 3.x. Namun, penambahan API baru seperti 
+          <code>gma.gui.progress</code> atau <code>gma.network.gethostdata</code> tidak tersedia pada versi lama. 
+          Rahul Light secara cerdas menyuntikkan shim fallback non-intrusif sehingga skrip tetap berjalan tanpa memicu crash fatal nil value.
+        </p>
+      </div>
+
+      <div class="doc-card">
+        <h2>2. Panduan Impor ke Konsol & Tata Letak Folder USB Resmi</h2>
+        <p>
+          Agar berkas hasil konversi dapat dibaca oleh konsol fisik grandMA2 atau onPC, susun direktori flashdisk USB Anda sebagai berikut:
+        </p>
+        <div class="doc-code-block">USB_ROOT/
+└── gma2/
+    ├── shows/          <-- Letakkan showfile (.show / .gz) di sini
+    ├── importexport/   <-- Letakkan XML Macro, Effect, Preset, Fixture di sini
+    ├── plugins/        <-- Letakkan Plugin (.lua) di sini
+    ├── bitmaps/        <-- Letakkan ikon & tekstur (.png / .bmp) di sini
+    └── library/        <-- Letakkan profil Fixture Type di sini</div>
+        <h3>Langkah Impor pada Konsol Fisik grandMA2:</h3>
+        <ol>
+          <li>Salin berkas hasil konversi dari Rahul Light ke folder USB yang sesuai.</li>
+          <li>Tancapkan flashdisk USB ke port konsol grandMA2 atau PC onPC.</li>
+          <li>Tekan tombol fisik <strong>[Setup]</strong> pada meja konsol.</li>
+          <li>Pilih menu <strong>[Import / Export]</strong> di layar konsol.</li>
+          <li>Pilih drive USB Anda di tab bagian atas (misal <code>Drive 2: USB</code>).</li>
+          <li>Pilih berkas yang diinginkan dan tekan tombol <strong>[Import]</strong>.</li>
+          <li>Periksa assignment fader dan tracking cue sequence sebelum rehearsal pertunjukan.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HALAMAN 6: TENTANG RAHUL LIGHT (ABOUT)
+         ==================================================================== -->
+    <section class="page-view" id="view-about">
+      <div class="panel-card" style="text-align: center; max-width: 860px; margin: 0 auto; padding: 3.5rem 2.5rem;">
+        <div class="about-logo-box">
+          <img src="assets/logo-transparent.png" alt="Rahul Light" class="about-logo-img">
+        </div>
+        <h1 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem;">
+          RAHUL LIGHT
+        </h1>
+        <div style="font-size: 0.95rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">
+          Platform Rekayasa Lighting & Penyesuaian Kompatibilitas Showfile grandMA2
+        </div>
+
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.75rem;">
+          Dirancang dan dibangun khusus untuk lighting programmer, operator panggung, operator festival musik, desainer pencahayaan konser, 
+          dan teknisi rental house. Kami menjembatani kesenjangan versi software agar Anda tidak panik saat tiba di FOH dan mendapati 
+          konsol festival menjalankan versi grandMA2 yang lebih lama dari file persiapan Anda.
+        </p>
+
+        <div class="feature-grid" style="text-align: left; margin-top: 2rem;">
+          <div class="feature-card">
+            <h3>Prioritas Keandalan</h3>
+            <p>Setiap proses konversi divalidasi kebenaran sintaksnya dan kesesuaian impor firmware konsol.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Menjaga Data Cue Pertunjukan</h3>
+            <p>Tidak ada penghapusan sepihak. Atribut kompleks dikomentari dengan aman atau di-shim secara transparan.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.85rem;">
+          Dikembangkan dengan dedikasi penuh untuk komunitas lighting programmer dunia. grandMA2® adalah merek dagang terdaftar dari MA Lighting Technology GmbH.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Kontainer Notifikasi Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-copy" style="display: flex; align-items: center; gap: 0.5rem;">
+        <img src="assets/logo-transparent.png" alt="Rahul Light" class="footer-logo-img">
+        <span>© 2026 <strong>RAHUL LIGHT</strong> — Suite Penyesuai Berkas grandMA2.</span>
+      </div>
+      <div class="footer-disclaimer">
+        Rahul Light adalah platform independen untuk operator lighting. Selalu verifikasi integritas showfile, cue sequence, dan fader mapping saat gladi resik panggung.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Logika Klien -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

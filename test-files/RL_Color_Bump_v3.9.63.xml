@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.malighting.de/grandma2/xml/MA" xsi:schemaLocation="http://schemas.malighting.de/grandma2/xml/MA http://schemas.malighting.de/grandma2/xml/3.9.63/MA.xsd" major_vers="3" minor_vers="9" stream_vers="63" stream_sub_vers="6">
+    <Info datetime="2024-03-20T19:45:00" showfile="Festival Tour 2024" />
+    <Macro index="10" name="RL_Color_Bump_3.9.63">
+        <Macroline index="0">
+            <text>ClearAll</text>
+            <info>Safety clear command line</info>
+        </Macroline>
+        <Macroline index="1">
+            <text>Group 1 At 100</text>
+        </Macroline>
+        <Macroline index="2">
+            <text>Appearance Macro 10 /color="#00D2FF"</text>
+            <info>Electric Cyan Accent (Requires v3.8+ or RGB rewrite for v3.9.60)</info>
+        </Macroline>
+        <Macroline index="3">
+            <text>Appearance Executor 1.101 /color="#FF0055"</text>
+            <info>Neon Magenta Tag</info>
+        </Macroline>
+        <Macroline index="4">
+            <text>NetworkSpeed Eth0 1000</text>
+            <info>Art-Net 4 Gigabit Sync mode command</info>
+        </Macroline>
+        <Macroline index="5">
+            <text>Go Executor 1.101</text>
+        </Macroline>
+    </Macro>
+</MA>

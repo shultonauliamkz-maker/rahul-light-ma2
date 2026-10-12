@@ -1,0 +1,8 @@
+node_modules/
+*.log
+*.zip
+*.gz
+*.show
+.env
+cloudflared.exe
+scratch/
