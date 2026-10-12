@@ -629,7 +629,7 @@ function setupConversionActions() {
         return;
       }
       elements.deployToMA2Btn.disabled = true;
-      elements.deployToMA2Btn.innerHTML = `<span>⏳ Memasang ke grandMA2...</span>`;
+      elements.deployToMA2Btn.innerHTML = `<span>⏳ Memeriksa instalasi grandMA2...</span>`;
       try {
         const res = await fetch('/api/deploy', {
           method: 'POST',
@@ -640,13 +640,51 @@ function setupConversionActions() {
           })
         });
         const data = await res.json();
-        if (!data.success) throw new Error(data.error);
-
-        showToast(`✓ Berhasil dipasang langsung ke grandMA2 (${data.matchedTarget})!`, 'success');
-
-        alert(`BERHASIL DIPASANG KE GRANDMA2!\n\nTarget Direktori: ${data.matchedTarget}\nLokasi Berkas:\n${data.deployedPaths.join('\n')}\n\n${data.instruction}`);
+        if (data.success) {
+          showToast(`✓ Berhasil dipasang langsung ke grandMA2 (${data.matchedTarget})!`, 'success');
+          alert(`BERHASIL DIPASANG KE GRANDMA2!\n\nTarget Direktori: ${data.matchedTarget}\nLokasi Berkas:\n${data.deployedPaths.join('\n')}\n\n${data.instruction}`);
+          return;
+        }
+        throw new Error(data.error);
       } catch (err) {
-        showToast(`Gagal memasang otomatis: ${err.message}`, 'error');
+        // Fallback untuk Cloud Hosting (Vercel / Online)
+        if (window.showDirectoryPicker) {
+          const userChoice = confirm(
+            `INFORMASI FITUR 1-KLIK DI CLOUD SERVER ONLINE:\n\n` +
+            `Website ini sekarang sedang berjalan di Server Cloud Internet (Vercel).\n` +
+            `Demi keamanan browser, website online tidak diizinkan menyusup atau menulis ke Drive C laptop secara diam-diam.\n\n` +
+            `Apakah Anda ingin memilih Flashdisk USB atau folder grandMA2 Anda sekarang untuk dipasangkan secara 1-KLIK?`
+          );
+          if (userChoice) {
+            try {
+              const dirHandle = await window.showDirectoryPicker();
+              const dlRes = await fetch(`/api/download/${state.activeConvertedResult.jobId}`);
+              const blob = await dlRes.blob();
+              const fileName = state.activeConvertedResult.outputFileName || 'show_converted.show.gz';
+              const fileHandle = await dirHandle.getFileHandle(fileName, { create: true });
+              const writable = await fileHandle.createWritable();
+              await writable.write(blob);
+              await writable.close();
+              showToast(`✓ Berhasil dipasang langsung ke ${dirHandle.name}!`, 'success');
+              alert(`✓ Berkas "${fileName}" berhasil dipasang langsung ke folder [${dirHandle.name}]!\n\nAnda dapat langsung membuka file ini di grandMA2.`);
+              return;
+            } catch (pickErr) {
+              if (pickErr.name !== 'AbortError') {
+                console.error(pickErr);
+              }
+            }
+          }
+        }
+
+        alert(
+          `PANDUAN PEMASANGAN (SERVER CLOUD ONLINE):\n\n` +
+          `Website online tidak dapat mengakses Drive C lokal Anda demi keamanan browser.\n\n` +
+          `CARA RESMI PALING PRAKTIS TANPA COPY KE C:\n` +
+          `1. Klik tombol "📦 UNDUH PAKET MIGRASI SHOWFILE (.ZIP)"\n` +
+          `2. Ekstrak langsung ke Flashdisk USB Anda (folder /gma2/shows/ dan /gma2/importexport/ otomatis terbentuk)\n` +
+          `3. Tancapkan USB ke konsol atau laptop -> Buka [Backup] -> [Load Show] -> Pilih [Drive 2: USB]!\n\n` +
+          `SAMA SEKALI TIDAK PERLU COPY MANUAL KE FOLDER C!`
+        );
       } finally {
         elements.deployToMA2Btn.disabled = false;
         elements.deployToMA2Btn.innerHTML = `<span>🚀 PASANG LANGSUNG KE GRANDMA2 (1-KLIK)</span>`;
